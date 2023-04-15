@@ -1,0 +1,14 @@
+version: '3'
+services:
+  undetected-chromedriver:
+    build: .
+    image: undetected-chromedriver
+    container_name: undetected-chromedriver
+    command: python script.py
+    entrypoint: /entrypoint.sh
+    volumes:
+      - ./mount:/opt/wd
+    ports:
+      - "5900:5900"
+    environment:
+      - VNC_PASSWORD=123456
